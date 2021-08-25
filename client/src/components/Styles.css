@@ -1,0 +1,63 @@
+.btn {
+  background-color: #01b159;
+  border-color: #01b159;
+  color: #fff;
+  width: 7%;
+  height: 4.4rem;
+  float: left;
+  position: absolute;
+  right: 18%;
+  transform: translate(0%, -50%);
+}
+
+.btn:hover {
+  background-color: #019249;
+  border-color: #019249;
+  color: hsla(0, 0%, 100%, 0.8);
+  transition: 0.3s ease;
+}
+
+.main {
+  height: 100vh;
+  max-height: 999px;
+  padding: 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  padding: 0 15px;
+}
+
+.description {
+  position: absolute;
+  font-size: 18px;
+  top: 30%;
+  left: 15%;
+  right: 15%;
+  color: darkgray;
+}
+
+.form-input {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 4rem;
+  width: 50%;
+  margin-right: 10%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+  text-align: left;
+  color: #fff;
+  float: left;
+}
