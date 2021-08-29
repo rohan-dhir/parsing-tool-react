@@ -1,9 +1,27 @@
 import React from 'react';
 import './Styles.css';
+import SearchBar from './SearchBar';
 
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { useQuery } from '@apollo/client';
+import gql from 'graphql-tag';
+import { Col, Container, Row } from 'react-bootstrap';
 
 const Home = () => {
+
+    const { loading, data } = useQuery(FETCH_PRODUCT_QUERY);
+
+    //Array of regular expressions for comparisons
+    const queryRegex = [];
+    
+    if(data) {   
+        //Generate a regex for each product from the database
+        for (let i = 0; i < data.getProducts.length; i++) {
+            const { brand, title, model } = data.getProducts[i];
+            queryRegex.push(`^(?=.*\\b${brand}\\b)(?=.*\\b${title}\\b)(?=.*\\b${model}\\b).+`);
+        }
+        
+    } 
+
     return (
         <div className="main">
             <Container>
@@ -18,17 +36,33 @@ const Home = () => {
                         </Col>
                     </Row>
                     <Row>
-                        <div className="mr-auto ml-auto col-md">
-                            <Form.Control className="form-input" type="text" placeholder="Try 'blah blah D750 blah blah Nikon something DSLR' " />
-                        </div>
-                        <div className="mr-auto ml-auto col-md">
-                            <Button className="btn">Parse</Button>
-                        </div>
+                        {loading ? (
+                        <h1>Loading</h1>
+                        ) :(
+                            data ? (
+                            <SearchBar queryRegex={queryRegex} queryResult={data} />
+                            ) : (
+                                <h4>Error: The database appears to be empty.</h4>
+                            )
+                        )
+                        }
+                        
                     </Row>
                 
             </Container>
         </div>
     );
 }
+
+const FETCH_PRODUCT_QUERY = gql`
+    {
+        getProducts {
+            id
+            brand
+            title
+            model
+        }
+    }
+`
 
 export default Home;
