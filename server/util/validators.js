@@ -11,7 +11,7 @@ module.exports.validateProductInput = (
         errors.title = 'Title must not be empty';
     }
     if(model.trim() === ''){
-        errors.model = 'The model must not be empty';
+        errors.model = 'Model must not be empty';
     }
 
     return {
