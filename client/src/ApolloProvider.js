@@ -2,7 +2,10 @@ import React from 'react';
 import App from './App';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 
-const { CLIENT_URI } = require('./config.json');
+//For local development
+//const { CLIENT_URI } = require('./config.json');
+
+const CLIENT_URI = "https://parsing-tool-react.herokuapp.com/";
 
 const httpLink = createHttpLink ({
     uri: CLIENT_URI
