@@ -5,7 +5,10 @@ import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@ap
 //For local development
 //const { CLIENT_URI } = require('./config.json');
 
-const CLIENT_URI = "https://parsing-tool-react.herokuapp.com/";
+const dotenv = require('dotenv');
+dotenv.config();
+
+const CLIENT_URI = process.env.CLIENT_URI
 
 const httpLink = createHttpLink ({
     uri: CLIENT_URI
