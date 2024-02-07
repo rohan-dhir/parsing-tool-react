@@ -40,7 +40,7 @@ const NewProductForm = (props) => {
         <>
             {loading ? (
                 
-                <div className="spinner-border text-light" role="status" />
+                <div className="spinner spinner-border text-light" role="status" />
             ) : (
 
                 <>

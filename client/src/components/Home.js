@@ -45,7 +45,7 @@ const Home = () => {
                     </Row>
                     <Row>
                         {loading ? (
-                            <div className="spinner-border text-light" role="status" />
+                            <div className="spinner spinner-border text-light" role="status" />
                         ) : (
                             <SearchBar queryRegex={queryRegex} queryResult={data} />
                         )

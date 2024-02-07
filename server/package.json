@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "14.x",
+    "node": "^14.x",
     "npm": "6.14.x"
   },
   "scripts": {
@@ -19,8 +19,5 @@
     "dotenv": "^10.0.0",
     "graphql": "^15.5.1",
     "mongoose": "^5.13.7"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.12"
   }
 }
