@@ -45,7 +45,11 @@ const Home = () => {
                     </Row>
                     <Row>
                         {loading ? (
-                            <div className="spinner spinner-border text-light" role="status" />
+                            <div className="spinner">
+                                <div className="spinner-border text-light" role="status" />
+                                <p>Loading Database. Please Wait...</p>
+                            </div>
+                            
                         ) : (
                             <SearchBar queryRegex={queryRegex} queryResult={data} />
                         )
@@ -63,7 +67,12 @@ const Home = () => {
                         </Col>
                     </Row>
                     <Row className="justify-content-center">
-                        <Button type="submit" className="btn btn-newProduct" onClick={onClick}>Add New Product</Button>
+                        {loading ? (
+                                <div className="spinner spinner-border text-light" role="status" />
+                            ) : (
+                                <Button type="submit" className="btn btn-newProduct" onClick={onClick}>Add New Product</Button>
+                            )
+                        }
                     </Row>    
             </Container>
 
